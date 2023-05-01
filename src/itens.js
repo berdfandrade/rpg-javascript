@@ -48,18 +48,6 @@ const todosOsItems = [
   { id: 45, item: "Varinha de Madeira", preco: 101 },
 ];
 
-// function transformarEmObjetos(arr) {
-//     const objetos = [];
-//     for (let i = 0; i < arr.length; i++) {
-//       const objeto = {
-//         id: i + 1,
-//         item: arr[i]
-//       };
-//       objetos.push(objeto);
-//     }
-//     return objetos;
-// }
-
 function obterItensAleatorios(lista) {
   const itemsAleatorios = [];
   while (itemsAleatorios.length < 4) {
@@ -72,13 +60,22 @@ function obterItensAleatorios(lista) {
   return itemsAleatorios;
 }
 
-console.log(todosOsItems[5]["preco"]);
 
-// function atribuirPrecoAleatorio(listaItens) {
-//     for (let i = 0; i < listaItens.length; i++) {
-//       listaItens[i].preco = Math.floor(Math.random() * 1000) + 1;
-//     }
-//     return listaItens;
-//   }
+function buscarItem(items, termo) {
+  termo = termo.toLowerCase().replace(/\s/g, '');
+  const itemPorId = items.find(item => item.id === termo);
+  if (itemPorId) {
+    return itemPorId;
+  }
+  const itemPorNome = items.find(item =>
+    item.nome.toLowerCase().replace(/\s/g, '') === termo
+  );
+  if (itemPorNome) {
+    return itemPorNome;
+  }
+  return null;
+}
 
-// console.log(atribuirPrecoAleatorio(todosOsItems))
+
+console.log(buscarItem("pocaodeveneno"))
+console.log(todosOsItems[0]["preco"]);

@@ -2,8 +2,8 @@
 
 
 
-export default class jogador {
-  constructor(nome, classe) {
+export default class Jogador {
+  constructor(nome, classe = "Estudante") {
     this.nome = nome;
     this.classe = classe;
   }
@@ -44,6 +44,16 @@ export default class jogador {
     );
   }
 
+  listaDeQuest = []; 
+
+  PegarUmaQuest(...quest){
+    if(this.listaDeQuest > 6){
+      console.log("Você tem muitas quests! Resolva elas primeiro");
+    } else {
+      this.listaDeQuest.push(...quest)
+    }
+  }
+
   comprarItem(...item) {
     dinheiroGasto = item["preco"];
     this.dinheiro -= item["preco"];
@@ -57,4 +67,6 @@ export default class jogador {
 }
 
 
+const Player = new Jogador("Bernardo")
 
+console.log(Player)
