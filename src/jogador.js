@@ -1,7 +1,6 @@
 
 
 
-
 export default class Jogador {
   constructor(nome, classe = "Estudante") {
     this.nome = nome;
@@ -44,13 +43,13 @@ export default class Jogador {
     );
   }
 
-  listaDeQuest = []; 
+  listaDeQuest = [];
 
-  PegarUmaQuest(...quest){
-    if(this.listaDeQuest > 6){
+  PegarUmaQuest(...quest) {
+    if (this.listaDeQuest > 6) {
       console.log("Você tem muitas quests! Resolva elas primeiro");
     } else {
-      this.listaDeQuest.push(...quest)
+      this.listaDeQuest.push(...quest);
     }
   }
 
@@ -61,12 +60,13 @@ export default class Jogador {
     if (item["preco"] > this.dinheiro) {
       console.log("Você não tem dinheiro para comprar este item");
     } else {
-      console.log(`O item custa ${item["preco"]}, você tem apenas ${this.dinheiro}`);
+      console.log(
+        `O item custa ${item["preco"]}, você tem apenas ${this.dinheiro}`
+      );
     }
   }
 }
 
+const Player = new Jogador("Bernardo");
 
-const Player = new Jogador("Bernardo")
-
-console.log(Player)
+console.log(Player);
