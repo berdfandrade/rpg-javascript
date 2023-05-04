@@ -2,8 +2,8 @@
 
 import {useState} from 'react'
 import Jogador from "../../core/jogador";
-
-
+import './menuJogador.css'
+import { classes } from '../../core/ExportDosArquivos';
 
 export function MenuJogador () {
 
@@ -19,7 +19,7 @@ export function MenuJogador () {
       };
     
       return (
-        <form onSubmit={handleSubmit}>
+        <form className="div_menu_jogador"onSubmit={handleSubmit}>
           <label htmlFor="nome">Qual é o seu nome?</label>
           <input
             type="text"
@@ -28,18 +28,20 @@ export function MenuJogador () {
             onChange={(event) => setNome(event.target.value)}
             required
           />
-    
-          <label htmlFor="classe">Qual é a sua classe?</label>
-          <select id="classe" value={classe} onChange={(event) => setClasse(event.target.value)} required>
+          <div>
+          <label htmlFor="">Qual é a sua classe?</label>
+          <select id="classe" value={classe} onChange={(event) => 
+            setClasse(event.target.value)} required>                
             <option value="">Selecione uma opção</option>
-            <option value="Guerreiro">Guerreiro</option>
+            <option value={classe.nome}>Guerreiro</option>
             <option value="Mago">Mago</option>
             <option value="Arqueiro">Arqueiro</option>
             <option value="Assassino">Assassino</option>
             <option value="Clerigo">Clerigo</option>
           </select>
-    
-          <button type="submit">Confirmar</button>
+          </div>
+
+          <button className="botao_menu_jogador"type="submit">Confirmar</button>
         </form>
       );
     }
