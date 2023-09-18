@@ -1,6 +1,3 @@
-
-
-
 export default class Jogador {
   constructor(nome, classe = "Estudante") {
     this.nome = nome;
@@ -14,17 +11,26 @@ export default class Jogador {
   defesaBase = 300;
 
   atacar() {
-    console.log(`${this.nome} atacou!`);
+    return `${this.nome} atacou!`;
   }
   defender() {
-    console.log(`${this.nome} defedeu do ataque`);
+    return `${this.nome} defedeu do ataque`;
   }
   mover() {
-    console.log(`${this.nome} se moveu`);
+    return `${this.nome} se moveu`;
   }
   ganharExp(experienciaGanha) {
     this.exp += experienciaGanha;
-    console.log(`${this.nome} ganhou ${this.exp} exp`);
+    return `${this.nome} ganhou ${this.exp} exp`;
+  }
+  fugirDaBatalha() {
+    let chanceDeFugir = Math.rando();
+
+    if (chanceDeFugir < 0.7) {
+      return `${this.nome} fugiu da batalha`;
+    } else {
+      return `${this.nome} não conseguiu fugir da batalha!`;
+    }
   }
 
   inventario = [];
